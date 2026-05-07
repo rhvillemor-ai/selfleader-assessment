@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>SelfLeader Assessment</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f4f7fa;
+    color:#243746;
+}
+
+.hero-bg{
+    background:
+    linear-gradient(
+    135deg,
+    rgba(172,214,223,.88),
+    rgba(184,167,197,.88)
+    ),
+    url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.glass{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+}
+
+.option-btn{
+    transition:.3s;
+}
+
+.option-btn:hover{
+    background:#2f4b5d;
+    color:white;
+}
+
+.option-btn.selected{
+    background:#2f4b5d;
+    color:white;
+    border-color:#2f4b5d;
+}
+
+.dimension-card{
+    transition:.3s;
+}
+
+.dimension-card:hover{
+    transform:translateY(-4px);
+}
+
+.result-circle{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.result-inner{
+    width:185px;
+    height:185px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="bg-[#2f4b5d] text-white">
+
+<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+<div>
+<h1 class="text-3xl tracking-[6px] font-light">
+SELFLEADER
+</h1>
+
+<p class="text-[#d7c3b0] tracking-[4px] text-sm">
+ASSESSMENT
+</p>
+</div>
+
+<nav class="hidden md:flex gap-10 text-sm tracking-wide">
+<a href="#" class="hover:text-[#d7c3b0]">INÍCIO</a>
+<a href="#" class="hover:text-[#d7c3b0]">ASSESSMENT</a>
+<a href="#" class="hover:text-[#d7c3b0]">RESULTADO</a>
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero-bg min-h-[550px] flex items-center">
+
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+<div></div>
+
+<div class="glass p-10 rounded-3xl text-white">
+
+<h2 class="text-5xl leading-tight tracking-[8px] uppercase font-light">
+Liderança começa dentro.
+</h2>
+
+<p class="mt-8 text-xl leading-9 text-white/90">
+O SelfLeader Assessment identifica seu nível de autoliderança por meio da análise de consciência emocional, disciplina, propósito, responsabilidade e maturidade pessoal.
+</p>
+
+<a href="#assessment">
+
+<button class="mt-10 bg-[#2f4b5d] hover:bg-[#243746] transition px-8 py-4 rounded-full tracking-[3px] uppercase">
+Iniciar Assessment
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DIMENSÕES -->
+<section class="py-20 bg-white">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="text-center mb-16">
+
+<h3 class="text-4xl tracking-[6px] uppercase font-light text-[#2f4b5d]">
+Dimensões Avaliadas
+</h3>
+
+<div class="w-32 h-[2px] bg-[#d7c3b0] mx-auto mt-6"></div>
+
+</div>
+
+<div class="grid md:grid-cols-4 gap-8">
+
+<div class="dimension-card bg-[#f8fafc] p-8 rounded-3xl shadow-sm">
+<h4 class="text-xl font-semibold text-[#2f4b5d]">
+Autoconsciência
+</h4>
+
+<p class="mt-4 text-slate-600 leading-7">
+Clareza emocional, percepção comportamental e consciência pessoal.
+</p>
+</div>
+
+<div class="dimension-card bg-[#f8fafc] p-8 rounded-3xl shadow-sm">
+<h4 class="text-xl font-semibold text-[#2f4b5d]">
+Disciplina
+</h4>
+
+<p class="mt-4 text-slate-600 leading-7">
+Consistência, foco e capacidade de execução sustentável.
+</p>
+</div>
+
+<div class="dimension-card bg-[#f8fafc] p-8 rounded-3xl shadow-sm">
+<h4 class="text-xl font-semibold text-[#2f4b5d]">
+Gestão Emocional
+</h4>
+
+<p class="mt-4 text-slate-600 leading-7">
+Equilíbrio emocional, resiliência e maturidade.
+</p>
+</div>
+
+<div class="dimension-card bg-[#f8fafc] p-8 rounded-3xl shadow-sm">
+<h4 class="text-xl font-semibold text-[#2f4b5d]">
+Propósito
+</h4>
+
+<p class="mt-4 text-slate-600 leading-7">
+Direção pessoal, metas e clareza de objetivos.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ASSESSMENT -->
+<section id="assessment" class="py-20 bg-[#eef3f7]">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<div class="mb-16">
+
+<h3 class="text-4xl tracking-[6px] uppercase font-light text-[#2f4b5d]">
+Assessment
+</h3>
+
+<p class="mt-6 text-slate-600 text-lg">
+Escolha uma resposta de 1 a 5 para cada afirmação.
+</p>
+
+<div class="mt-6 text-sm text-slate-500">
+1 = Nunca | 2 = Raramente | 3 = Às vezes | 4 = Frequentemente | 5 = Sempre
+</div>
+
+</div>
+
+<div id="questionsContainer"></div>
+
+<div class="text-center mt-16">
+
+<button
+onclick="calculateResult()"
+class="bg-[#2f4b5d] hover:bg-[#243746] transition text-white px-10 py-5 rounded-full uppercase tracking-[3px]"
+>
+Gerar Resultado
+</button>
+
+<button
+onclick="generatePDF()"
+class="
+mt-6
+md:mt-0
+md:ml-4
+bg-[#d7c3b0]
+hover:bg-[#c8b29b]
+transition
+text-[#243746]
+px-10
+py-5
+rounded-full
+uppercase
+tracking-[3px]
+font-semibold
+shadow-lg
+"
+>
+Gerar PDF
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESULTADO -->
+<section id="resultSection" class="hidden py-24 bg-white">
+
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="grid md:grid-cols-2 gap-16 items-center">
+
+<div>
+
+<h3 class="text-4xl tracking-[6px] uppercase font-light text-[#2f4b5d]">
+Resultado
+</h3>
+
+<div class="mt-10 bg-[#f8fafc] p-10 rounded-3xl">
+
+<h4 class="text-xl text-slate-500 uppercase tracking-[3px]">
+Seu Perfil
+</h4>
+
+<h2 id="profileName" class="mt-4 text-4xl text-[#2f4b5d] font-light">
+-
+</h2>
+
+<p id="profileDescription" class="mt-6 text-slate-600 leading-8 text-lg">
+-
+</p>
+
+</div>
+
+</div>
+
+<div class="flex justify-center">
+
+<div id="resultCircle" class="result-circle">
+
+<div class="result-inner">
+
+<div id="scoreText" class="text-6xl font-light text-[#2f4b5d]">
+0%
+</div>
+
+<div class="mt-2 text-sm tracking-[3px] uppercase text-slate-500">
+Resultado Geral
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FEEDBACK -->
+<div class="mt-20">
+
+<h3 class="text-3xl tracking-[5px] uppercase font-light text-[#2f4b5d] mb-10">
+Plano de Desenvolvimento
+</h3>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-[#2f4b5d] text-white p-8 rounded-3xl">
+<h4 class="text-2xl text-[#d7c3b0]">
+Ponto Forte
+</h4>
+
+<p id="strongPoint" class="mt-5 leading-8 text-white/90">
+-
+</p>
+</div>
+
+<div class="bg-[#2f4b5d] text-white p-8 rounded-3xl">
+<h4 class="text-2xl text-[#d7c3b0]">
+Desenvolvimento
+</h4>
+
+<p id="developmentPoint" class="mt-5 leading-8 text-white/90">
+-
+</p>
+</div>
+
+<div class="bg-[#2f4b5d] text-white p-8 rounded-3xl">
+<h4 class="text-2xl text-[#d7c3b0]">
+Plano de Ação
+</h4>
+
+<p id="actionPlan" class="mt-5 leading-8 text-white/90">
+-
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- DIMENSÕES -->
+<div class="mt-20">
+
+<h3 class="text-3xl tracking-[5px] uppercase font-light text-[#2f4b5d] mb-10">
+Índices por Dimensão
+</h3>
+
+<div id="dimensionGrid" class="grid md:grid-cols-4 gap-6"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#243746] text-white py-10">
+
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center flex-col md:flex-row gap-5">
+
+<div>
+<h4 class="tracking-[5px] text-xl">
+SELFLEADER ASSESSMENT
+</h4>
+</div>
+
+<div class="text-white/70 text-sm">
+Avaliação de Autoliderança e Maturidade Pessoal
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+const dimensions = [
+
+{
+title:"AUTOCONSCIÊNCIA",
+questions:[
+"Consigo identificar rapidamente quando minhas emoções influenciam minhas decisões.",
+"Reconheço meus pontos fortes com clareza.",
+"Tenho consciência dos comportamentos que prejudicam meus resultados.",
+"Percebo como minhas atitudes impactam outras pessoas."
+]
+},
+
+{
+title:"AUTORRESPONSABILIDADE",
+questions:[
+"Evito terceirizar a culpa pelos meus resultados.",
+"Assumo meus erros sem criar justificativas excessivas.",
+"Busco soluções antes de reclamar dos problemas.",
+"Cumpro o que prometo para mim mesmo."
+]
+},
+
+{
+title:"GESTÃO EMOCIONAL",
+questions:[
+"Consigo manter equilíbrio emocional sob pressão.",
+"Não ajo impulsivamente quando frustrado.",
+"Sei lidar com críticas sem perder o controle emocional.",
+"Recupero-me rapidamente após situações difíceis."
+]
+},
+
+{
+title:"DISCIPLINA E CONSISTÊNCIA",
+questions:[
+"Consigo manter hábitos positivos ao longo do tempo.",
+"Finalizo tarefas mesmo quando perco motivação.",
+"Tenho constância na execução das minhas metas.",
+"Evito procrastinar atividades importantes."
+]
+},
+
+{
+title:"GESTÃO DO TEMPO E PRIORIDADES",
+questions:[
+"Defino prioridades com clareza.",
+"Organizo minha rotina de forma produtiva.",
+"Evito distrações que comprometem meus objetivos.",
+"Consigo equilibrar urgência e planejamento."
+]
+},
+
+{
+title:"COMUNICAÇÃO INTERNA",
+questions:[
+"Meu diálogo interno costuma ser construtivo.",
+"Evito autossabotagem mental excessiva.",
+"Sei reconhecer minhas conquistas.",
+"Consigo manter uma mentalidade positiva diante de dificuldades."
+]
+},
+
+{
+title:"ADAPTABILIDADE",
+questions:[
+"Lido bem com mudanças inesperadas.",
+"Consigo rever minhas estratégias quando necessário.",
+"Aprendo com erros e experiências difíceis.",
+"Tenho abertura para novas perspectivas."
+]
+},
+
+{
+title:"PROPÓSITO E DIREÇÃO",
+questions:[
+"Tenho clareza sobre meus objetivos pessoais e profissionais.",
+"Minhas ações diárias estão alinhadas com meus objetivos.",
+"Sinto que minha vida possui direção e sentido.",
+"Sei quais resultados desejo construir nos próximos anos."
+]
+}
+
+];
+
+const answers = {};
+
+const container = document.getElementById("questionsContainer");
+
+let globalIndex = 1;
+
+dimensions.forEach((dimension,dimensionIndex)=>{
+
+const block = document.createElement("div");
+
+block.className = "mb-16";
+
+block.innerHTML = `
+<div class="mb-8">
+<h3 class="text-3xl tracking-[4px] uppercase font-light text-[#2f4b5d]">
+${dimension.title}
+</h3>
+
+<div class="w-24 h-[2px] bg-[#d7c3b0] mt-4"></div>
+</div>
+`;
+
+dimension.questions.forEach((question,qIndex)=>{
+
+const questionId = `${dimensionIndex}-${qIndex}`;
+
+const card = document.createElement("div");
+
+card.className = `
+bg-white
+rounded-3xl
+p-8
+shadow-sm
+mb-6
+`;
+
+card.innerHTML = `
+
+<div class="flex flex-col lg:flex-row justify-between gap-8">
+
+<div class="lg:w-[65%]">
+
+<div class="flex items-start gap-4">
+
+<div class="
+min-w-[48px]
+h-[48px]
+rounded-full
+bg-[#2f4b5d]
+text-white
+flex
+items-center
+justify-center
+font-semibold
+text-sm
+shadow-lg
+">
+${globalIndex}
+</div>
+
+<h4 class="text-xl font-semibold text-[#2f4b5d] leading-8">
+${question}
+</h4>
+
+</div>
+
+</div>
+
+<div class="flex gap-3 flex-wrap">
+
+${[1,2,3,4,5].map(value=>`
+
+<button
+class="
+option-btn
+w-12
+h-12
+rounded-full
+border
+border-slate-300
+font-semibold
+"
+data-question="${questionId}"
+data-value="${value}"
+onclick="selectOption(this)"
+>
+${value}
+</button>
+
+`).join("")}
+
+</div>
+
+</div>
+`;
+
+block.appendChild(card);
+
+globalIndex++;
+
+});
+
+container.appendChild(block);
+
+});
+
+function selectOption(button){
+
+const question = button.dataset.question;
+const value = Number(button.dataset.value);
+
+answers[question] = value;
+
+document.querySelectorAll(`[data-question="${question}"]`)
+.forEach(btn=>btn.classList.remove("selected"));
+
+button.classList.add("selected");
+
+}
+
+function calculateResult(){
+
+if(Object.keys(answers).length < 32){
+
+alert("Por favor, responda todas as 32 questões.");
+
+return;
+
+}
+
+let total = 0;
+
+Object.values(answers).forEach(v=> total += v);
+
+const percentage = Math.round((total / 160) * 100);
+
+document.getElementById("scoreText").innerText = percentage + "%";
+
+const degrees = percentage * 3.6;
+
+document.getElementById("resultCircle").style.background =
+`conic-gradient(#2f4b5d ${degrees}deg, #d7c3b0 ${degrees}deg)`;
+
+let profile = "";
+let description = "";
+let strongPoint = "";
+let development = "";
+let action = "";
+
+if(percentage < 40){
+
+profile = "REATIVO";
+
+description =
+"Você pode estar conduzindo sua vida mais pelas circunstâncias do que por consciência estratégica.";
+
+strongPoint =
+"Existe abertura para crescimento e mudança.";
+
+development =
+"Fortalecer disciplina emocional e responsabilidade pessoal.";
+
+action =
+"Criar rotina semanal de metas e organização.";
+
+}
+
+else if(percentage < 60){
+
+profile = "SOBREVIVENTE OPERACIONAL";
+
+description =
+"Você possui capacidade de execução, mas ainda enfrenta desafios emocionais e de equilíbrio interno.";
+
+strongPoint =
+"Boa capacidade operacional.";
+
+development =
+"Fortalecer equilíbrio emocional e constância.";
+
+action =
+"Implementar gestão do tempo e revisão emocional semanal.";
+
+}
+
+else if(percentage < 80){
+
+profile = "AUTOLIDERANÇA EM DESENVOLVIMENTO";
+
+description =
+"Você já apresenta consciência relevante sobre si mesmo e demonstra evolução consistente.";
+
+strongPoint =
+"Capacidade de evolução contínua.";
+
+development =
+"Fortalecer consistência emocional e estratégica.";
+
+action =
+"Criar indicadores pessoais de hábitos e metas.";
+
+}
+
+else{
+
+profile = "AUTOLÍDER ESTRATÉGICO";
+
+description =
+"Você demonstra elevado nível de maturidade emocional, clareza de direção e responsabilidade pessoal.";
+
+strongPoint =
+"Alta capacidade de autogestão.";
+
+development =
+"Expandir influência positiva sobre outras pessoas.";
+
+action =
+"Construir plano contínuo de expansão pessoal.";
+
+}
+
+document.getElementById("profileName").innerText = profile;
+
+document.getElementById("profileDescription").innerText = description;
+
+document.getElementById("strongPoint").innerText = strongPoint;
+
+document.getElementById("developmentPoint").innerText = development;
+
+document.getElementById("actionPlan").innerText = action;
+
+const grid = document.getElementById("dimensionGrid");
+
+grid.innerHTML = "";
+
+dimensions.forEach((dimension,dimensionIndex)=>{
+
+let dimensionTotal = 0;
+
+dimension.questions.forEach((q,qIndex)=>{
+
+const questionId = `${dimensionIndex}-${qIndex}`;
+
+dimensionTotal += answers[questionId];
+
+});
+
+const dimensionPercentage = Math.round((dimensionTotal / 20) * 100);
+
+const card = document.createElement("div");
+
+card.className = `
+bg-[#f8fafc]
+rounded-3xl
+p-6
+border
+border-slate-100
+`;
+
+card.innerHTML = `
+<div class="text-sm uppercase tracking-[2px] text-slate-500">
+${dimension.title}
+</div>
+
+<div class="mt-4 text-4xl font-light text-[#2f4b5d]">
+${dimensionPercentage}%
+</div>
+`;
+
+grid.appendChild(card);
+
+});
+
+document.getElementById("resultSection").classList.remove("hidden");
+
+window.scrollTo({
+top:document.getElementById("resultSection").offsetTop - 50,
+behavior:"smooth"
+});
+
+}
+
+async function generatePDF(){
+
+if(document.getElementById("resultSection").classList.contains("hidden")){
+
+alert("Gere o resultado antes de exportar o PDF.");
+
+return;
+
+}
+
+const { jsPDF } = window.jspdf;
+
+const doc = new jsPDF();
+
+const profile =
+document.getElementById("profileName").innerText;
+
+const score =
+document.getElementById("scoreText").innerText;
+
+const description =
+document.getElementById("profileDescription").innerText;
+
+const strongPoint =
+document.getElementById("strongPoint").innerText;
+
+const developmentPoint =
+document.getElementById("developmentPoint").innerText;
+
+const actionPlan =
+document.getElementById("actionPlan").innerText;
+
+doc.setFont("helvetica");
+
+doc.setFontSize(24);
+doc.text("SELFLEADER ASSESSMENT",20,25);
+
+doc.setFontSize(18);
+doc.text("Resultado Final",20,45);
+
+doc.setFontSize(14);
+doc.text(`Perfil: ${profile}`,20,65);
+
+doc.text(`Resultado Geral: ${score}`,20,80);
+
+doc.setFontSize(12);
+
+const splitDescription =
+doc.splitTextToSize(description,170);
+
+doc.text(splitDescription,20,100);
+
+let y = 130;
+
+doc.setFontSize(16);
+doc.text("Plano de Desenvolvimento",20,y);
+
+y += 15;
+
+doc.setFontSize(12);
+
+doc.text("Ponto Forte:",20,y);
+y += 8;
+
+const strongSplit =
+doc.splitTextToSize(strongPoint,170);
+
+doc.text(strongSplit,20,y);
+
+y += strongSplit.length * 8 + 10;
+
+doc.text("Desenvolvimento:",20,y);
+
+y += 8;
+
+const devSplit =
+doc.splitTextToSize(developmentPoint,170);
+
+doc.text(devSplit,20,y);
+
+y += devSplit.length * 8 + 10;
+
+doc.text("Plano de Ação:",20,y);
+
+y += 8;
+
+const actionSplit =
+doc.splitTextToSize(actionPlan,170);
+
+doc.text(actionSplit,20,y);
+
+y += actionSplit.length * 8 + 15;
+
+doc.setFontSize(16);
+
+doc.text("Índices por Dimensão",20,y);
+
+y += 15;
+
+dimensions.forEach((dimension,dimensionIndex)=>{
+
+let dimensionTotal = 0;
+
+dimension.questions.forEach((q,qIndex)=>{
+
+const questionId = `${dimensionIndex}-${qIndex}`;
+
+dimensionTotal += answers[questionId];
+
+});
+
+const dimensionPercentage =
+Math.round((dimensionTotal / 20) * 100);
+
+doc.setFontSize(12);
+
+doc.text(
+`${dimension.title}: ${dimensionPercentage}%`,
+20,
+y
+);
+
+y += 10;
+
+});
+
+doc.save("SelfLeaderAssessment.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
